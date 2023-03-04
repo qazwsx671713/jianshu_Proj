@@ -158,3 +158,21 @@
 .navbar .container .search-container .focus-input-form{
     width: 220px;
 }
+
+
+/* 定义CSSTransition动画效果 */
+.movie-enter{
+    transition:all 0.2s ease-out;
+}
+.movie-enter-done{
+    width: 220px;
+}
+.movie-exit{
+    transition:all 0.2s ease-out;
+}
+.movie-exit-done{
+    width: 160px;
+}
+/* .movie-enter-active{
+    width: 220px;
+} */
