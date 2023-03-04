@@ -4,18 +4,28 @@ import logo_pic from './imgs/jianshu_logo.png'
 import search_btn_pic from './imgs/搜索.png'
 import { useState } from 'react';
 import {CSSTransition} from 'react-transition-group'
+import {useSelector,useDispatch} from 'react-redux'	
 const Header = () => {
-    const [focus, setFocus] = useState(false);
+    // const [focus, setFocus] = useState(false);
+    const focus = useSelector(state=>state.focus)
+    const dispatch = useDispatch()
     const focus_search = (event)=>{
         // event.target.clientWidth=`160px`
         // console.log(event.target.clientWidth)
-        setFocus(true)
+        // const dispatch = useDispatch()
+        dispatch({type:'change-focue',data:true})
+        // setFocus(true)
     }
     const blur_search = (event)=>{
-        setFocus(false)
+        // const dispatch = useDispatch()
+        dispatch({type:'change-focue',data:false})
+        // setFocus(false)
     }
     return (
         <div className='navbar clearfix'>
+            {console.log(focus)}
+
+            {/* const focus = useSelector(state=>state.focus) */}
             <div className='logo'><img src={logo_pic} alt="简书logo" /></div>
             <div className="container clearfix">
                 <div className="navlist">
