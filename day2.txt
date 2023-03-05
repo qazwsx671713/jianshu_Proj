@@ -1,0 +1,14 @@
+1. 如何画一个三角形
+    新建一个div
+    设置h和w为0
+    设置border: 10px solid transparent;
+    看要什么三角形，设置其显示颜色
+    border-bottom: 10px solid green;
+
+############################################################
+2. clearfix中，如果display是inline-block，那么会占一行空间。 为什么？
+############################################################
+
+3. 控制某个组件是否显示
+    {condition && <Components/>}
+    当condition为真，才显示

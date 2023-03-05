@@ -1,3 +1,112 @@
+
 1.搭建react脚手架
     create-react-app jianshu
-    
+2.安装styled-components
+    npm add styled-components
+    作用：样式管理
+3.使用reset.css
+    使所有浏览器的样式一致
+4.header组件创建
+    去简书官网用css写样式
+    ********
+    发现问题
+    img src引用图片时引不到，因为项目启动时，webpack不知道当前component目录在哪，默认是从根目录找，
+    因此，要把图片提前在component中import，再用src引用。
+
+5. 安装react-transition-group实现button伸缩动画效果
+    npm add react-transition-group
+
+    # 在需要动画的区域放上
+        <CSSTransition>标签
+        在标签中设置一下属性
+            (1) in 传入boolean值，传入的是true代表开启 enter enter-active和enter-done的这一变化过程，传入false代码开启 exit exit-active exit-done这一过程 (必传)
+            (2) timeout 表示执行时间，enter-active到enter-done 或者 exit-active到exit-done的执行时间 (必传)
+            (3) classNames 定义添加的类名，这里定义的类名会被添加到 enter-xxx 及 exit-xxx 的之前
+            (4) ummountOnExit 默认为false，表示当传入in的值为false值，CSSTransition中的元素不从dom中移除，传true时则会被移除
+
+    # 在css中设置className
+        # 载入动画
+        .className-enter: 入场动画
+        .className-enter-active： 播放入场动画时...
+        .className-enter-done： 画面停止效果
+        # 退出动画，同上
+        .className-exit
+        .className-exit-active
+        .className-exit-done
+
+6. 使用redux存储数据
+    # 随着开发，可能前期数据需要在别的组件使用，因此前期就将数据存储在redux中，
+    利于后期维护。
+
+    #### redux 安装 #####
+    npm i redux
+    npm i react-redux
+
+    #### redux 使用方法 #####
+    1.新建store文件夹
+    2.新建store.js与reducer.js
+        # 在store.js中输入内容：
+            import {legacy_createStore as createStore} from 'redux'
+            import reducer from './reducer'
+            # 创建store，绑定reducer
+            export default const store = createStore(reducer)
+        # 在reducer.js中输入内容：
+            # 定义默认store内容
+            # 返回纯函数（输入什么就输出什么）
+            const defaultState = {focus:false}
+            export default  (state=defaultState,action)=>{
+                const {type,data} = action
+                switch(type){
+                    case 'change-focue':
+                        return {
+                            ...state,
+                            focus:data
+                        }
+                    default:
+                        return defaultState
+                }
+            }
+        # 在App.js中，引入刚创建的store.js
+        # 同时引入 Provider 允许该组件读取redux内容
+            import store from './store/store
+            import {Provider} from 'react-redux
+            # 允许该组件读取redux内容
+            <Provider store={store}>
+                <components>
+            </Provider>
+
+        # 在要使用redux的组件中
+            # 声明 useSelector,useDispatch 
+            # 在函数组件中使用获得要用的属性以及dispath
+
+            import {useSelector,useDispatch} from 'react-redux'	
+            const focus = useSelector(state=>state.focus)
+            const dispatch = useDispatch()
+
+            # 使用dispath更新数据
+            
+            dispatch({type:'change-focue',data:true})
+
+           
+
+
+
+*.原本学的是类式组件，现在改用函数式组件
+    # 定义state属性
+    const [focus, setFocus] = useState(false);
+    # false-->focus
+    # 后续使用setFocus(v) --> v-->focue
+    # 函数式组件render
+
+    # 使用ref
+    const inputRef = React.useRef();
+    <input type="text" ref={inputRef}/>
+
+    # 函数式组件定义方法时，要用const声明
+
+    # 要修改样式，可以通过
+    # 变量-->修改类-->修改样式
+
+
+图片存储地址：
+    D:\工作\jianshu_proj\jianshu\src\components\Header\imgs

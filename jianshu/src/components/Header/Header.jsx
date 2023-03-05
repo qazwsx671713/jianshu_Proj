@@ -3,6 +3,7 @@ import './style.css'
 import logo_pic from './imgs/jianshu_logo.png'
 import search_btn_pic from './imgs/搜索.png'
 import { useState } from 'react';
+import SearchInfo from './component/SearchInfo/Search_info';
 import {CSSTransition} from 'react-transition-group'
 import {useSelector,useDispatch} from 'react-redux'	
 const Header = () => {
@@ -40,13 +41,13 @@ const Header = () => {
                 <CSSTransition
                     in={focus}
                     timeout={200}
-                    classNames='movie' 
-                >
+                    classNames='movie'>
                     <form action="/search" className={focus?'search-form focus-input-form':'search-form'}>
                                     <input type="text" className={focus?'focus-input':''} placeholder='搜索' onFocus={focus_search} onBlur={blur_search}/>
                                     <button><img src={search_btn_pic} alt="" /></button>
-                                </form>
-                                </CSSTransition>
+                    </form>
+                </CSSTransition>
+                    {focus&&<SearchInfo/>}
                 </div>
                 <div className='login-btn'>
                     <a>登录</a>

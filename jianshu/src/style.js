@@ -83,8 +83,8 @@ export const GlobalStyled = createGlobalStyle`
     /*清除浮动*/
     .clearfix:before,
     .clearfix:after{
-      content: " ";
-      display: inline-block;
+      content: "";
+      display: block;
       height: 0;
       clear: both;
       visibility: hidden;

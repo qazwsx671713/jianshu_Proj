@@ -1,0 +1,20 @@
+#hot-box-container{
+    width: 100% - 40px;
+    height: 100%;
+    padding: 0px 20px;
+}
+#hot-box-container #small-box{
+    float: left;
+    /* width: 30px; */
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 2px;
+    padding: 0px 10px;
+    font-size: 12px;
+    margin: 10px 15px;
+    border: 1px solid rgb(229, 228, 229);
+}
+#small-box:hover{
+    background-color: orange;
+}
