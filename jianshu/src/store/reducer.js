@@ -1,6 +1,7 @@
 const defaultState = {
     focus:false,
     hot_title_list:[],
+    mouse_in_hot_list:false,
     now_page : 1,
     all_page : 0
     
@@ -11,7 +12,7 @@ export default  (state=defaultState,action)=>{
         case 'change-focus':
             return {
                 ...state,
-                focus:true
+                focus:data
             }
         case 'update_hot_title_list':
             return {
@@ -23,6 +24,12 @@ export default  (state=defaultState,action)=>{
             return {
                 ...state,
                 now_page:data
+            }
+        case 'change_mouse_state':
+            console.log('state_mouse_in_hot_list:',state.mouse_in_hot_list)
+            return {
+                ...state,
+                mouse_in_hot_list:data
             }
         default:
             return defaultState

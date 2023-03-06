@@ -48,3 +48,11 @@ export function change_Search(now_page,all_page){
         }
     })
 }
+
+export function change_mouse_state(data){
+    return store.dispatch({
+        type:'change_mouse_state',
+        data:data
+    }
+    )
+}

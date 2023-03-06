@@ -6,9 +6,10 @@ import { useState } from 'react';
 import SearchInfo from './component/SearchInfo/Search_info';
 import {CSSTransition} from 'react-transition-group'
 import {useSelector,useDispatch} from 'react-redux'	
-import { changeFocus ,get_hot_search_data} from '../../store/actionCreator';
+import { changeFocus ,get_hot_search_data,change_mouse_state } from '../../store/actionCreator';
 const Header = () => {
     const focus = useSelector(state=>state.focus)
+    const mouse_in_hot_list = useSelector(state=>state.mouse_in_hot_list)
     const dispatch = useDispatch()
     const focus_search = (event)=>{
         get_hot_search_data()
@@ -16,6 +17,9 @@ const Header = () => {
     }
     const blur_search = (event)=>{
         changeFocus(false)
+    }
+    const mouse_enter_hot_list=()=>{
+        change_mouse_state(true)
     }
     return (
         <div className='navbar clearfix'>
@@ -32,17 +36,18 @@ const Header = () => {
                         <li><a href="https://www.jianshu.com/techareas">IT技术</a></li>
                     </ul>
                 </div>
-                <div className="search-container">
+                <div className="search-container" onFocus={focus_search} onBlur={blur_search}>
                 <CSSTransition
                     in={focus}
                     timeout={200}
                     classNames='movie'>
                     <form action="/search" className={focus?'search-form focus-input-form':'search-form'}>
-                                    <input type="text" className={focus?'focus-input':''} placeholder='搜索' onFocus={focus_search} onBlur={blur_search}/>
+                                    <input type="text" className={focus?'focus-input':''} placeholder='搜索'/>
                                     <button><img src={search_btn_pic} alt="" /></button>
                     </form>
                 </CSSTransition>
-                    {focus&&<SearchInfo/>}
+                    {console.log('mouse_in_hot_list:',mouse_in_hot_list)}
+                    {(mouse_in_hot_list||focus)&&<SearchInfo />}
                 </div>
                 <div className='login-btn'>
                     <a>登录</a>
