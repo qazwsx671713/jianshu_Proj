@@ -6,21 +6,16 @@ import { useState } from 'react';
 import SearchInfo from './component/SearchInfo/Search_info';
 import {CSSTransition} from 'react-transition-group'
 import {useSelector,useDispatch} from 'react-redux'	
+import { changeFocus ,get_hot_search_data} from '../../store/actionCreator';
 const Header = () => {
-    // const [focus, setFocus] = useState(false);
     const focus = useSelector(state=>state.focus)
     const dispatch = useDispatch()
     const focus_search = (event)=>{
-        // event.target.clientWidth=`160px`
-        // console.log(event.target.clientWidth)
-        // const dispatch = useDispatch()
-        dispatch({type:'change-focue',data:true})
-        // setFocus(true)
+        get_hot_search_data()
+        changeFocus(true)
     }
     const blur_search = (event)=>{
-        // const dispatch = useDispatch()
-        dispatch({type:'change-focue',data:false})
-        // setFocus(false)
+        changeFocus(false)
     }
     return (
         <div className='navbar clearfix'>

@@ -12,3 +12,45 @@
 3. 控制某个组件是否显示
     {condition && <Components/>}
     当condition为真，才显示
+
+4. /store下新建actionCreator管理状态更新，实现状态更新与组件相分离
+
+5. 安装并使用axios
+    npm i axios
+    import axios from 'axios'
+    axios.get(...
+        ).then(
+                res=>{do something},
+                err=>{do something}
+                )
+
+6. 适用redux-thunk实现异步action
+    -1.安装redux-thunk
+        npm i redux-thunk
+    -2.使用redux-thunk
+        在store.js中输入内容('-'代表删除代码，'+'代表增加代码):
+            import reduxThunk from 'redux-thunk'
+            import {applyMiddleware} from 'redux'
+        -   const store = createStore(reducers)
+        +   const store = createStore(reducers,applyMiddleware(reduxThunk));
+    -3.使用thunk以后，我们就可以dispatch两种类型的参数
+        (1).action对象
+        (2).函数
+    -4.当传入action对象
+        此时直接执行reducer中的动作
+    -5.当传入函数
+        store会新建一个线程执行该函数。
+        同时会给与该函数一个dispatch函数，方便当函数中的异步操作结束后更新数据
+    -6. 代码模板:
+        export function get_data(){
+            return store.dispatch(
+                (dispatch)=>{
+                    data = ...（异步函数）
+                    dispatch({
+                        type:'...',
+                        data:data
+                    })
+                }
+            )
+        }
+    

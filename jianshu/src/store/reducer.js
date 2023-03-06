@@ -1,15 +1,28 @@
 const defaultState = {
     focus:false,
-    hot_title_list:['理财','毕业','手账','简书交友','spring','古风','故事','旅行','连载']
+    hot_title_list:[],
+    now_page : 1,
+    all_page : 0
     
 }
 export default  (state=defaultState,action)=>{
     const {type,data} = action
     switch(type){
-        case 'change-focue':
+        case 'change-focus':
             return {
                 ...state,
-                focus:data
+                focus:true
+            }
+        case 'update_hot_title_list':
+            return {
+                ...state,
+                hot_title_list:data.hot_title_list,
+                all_page:data.all_page
+            }
+        case 'change_search':
+            return {
+                ...state,
+                now_page:data
             }
         default:
             return defaultState
