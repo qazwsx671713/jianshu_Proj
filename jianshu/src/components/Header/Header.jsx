@@ -18,9 +18,6 @@ const Header = () => {
     const blur_search = (event)=>{
         changeFocus(false)
     }
-    const mouse_enter_hot_list=()=>{
-        change_mouse_state(true)
-    }
     return (
         <div className='navbar clearfix'>
             {console.log(focus)}

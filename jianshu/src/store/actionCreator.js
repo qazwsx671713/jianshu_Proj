@@ -8,6 +8,8 @@ export function changeFocus(isActive){
 }
 
 export function get_hot_search_data(){
+    const hot_title_list = store.getState().hot_title_list
+    if (hot_title_list.length!==0) return
     return store.dispatch((dispatch)=>{
         axios.get('/api/get_data.json').then(
             res=>{
