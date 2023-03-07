@@ -1,0 +1,54 @@
+#download-container{
+    position: relative;
+    width: 390px;
+    margin-left: 10px;
+    margin-top: 30px;
+    /* height: 150px; */
+    border: 1px solid rgb(153, 166, 196);
+    border-radius: 4px;
+    /* padding-top: 30px; */
+}
+#jianshu-logo{
+    float: left;
+    width: 100px;
+    height: 100px;
+    padding: 30px 0 30px 30px;
+    /* margin: 30px 0px 0px 30px; */
+}
+#dowload-info{
+    position: absolute;
+    bottom: 60px;
+    right: 40px;
+}
+#download-title{
+    display: inline;
+    font-size: 25px;
+    color: #333;
+    /* margin-bottom: 20px; */
+}
+#download-dcr{
+    font-size: 15px;
+    color: #999;
+    margin-top: 10px;
+}
+#jianshu-logo-big{
+    width: 200px;
+}
+#big-img-container{
+    position: absolute;
+    top:-230px;
+    left: 50px;
+    padding: 10px;
+    background-color: white;
+}
+#download-tri{
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50px;
+    bottom: -40px;;
+    display: block;
+    border: 20px solid transparent;
+    border-top: 20px solid white;
+
+}

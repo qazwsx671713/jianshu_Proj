@@ -5,6 +5,7 @@ import Topic from './components/Topic/Topic'
 import Writer from './components/Writer/Writer'
 import './Home.css'
 import { get_topic_list_data ,get_list_data} from '../../store/actionCreator'
+import Download from './components/Download/Download'
 export default function Home() {
     get_topic_list_data()
     get_list_data()
@@ -17,6 +18,7 @@ export default function Home() {
         </div>
         <div id="home-right">
             <Recommand/>
+            <Download/>
             <Writer/>
         </div>
     </div>
