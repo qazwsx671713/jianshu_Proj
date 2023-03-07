@@ -15,7 +15,7 @@ export default function Home() {
             <Topic/>
             <List/>
         </div>
-        <div className="" id="home-right">
+        <div id="home-right">
             <Recommand/>
             <Writer/>
         </div>

@@ -1,0 +1,13 @@
+#recommand-container{
+    width: 410px;
+    height: 300px;
+    padding-top: 30px;
+}
+.recommand-img{
+    width: 400px;
+    margin-left: 10px;
+    /* height: 100%; */
+}
+.recommand_a{
+    display: inline-block;
+}
