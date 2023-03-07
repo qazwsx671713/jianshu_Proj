@@ -1,0 +1,16 @@
+#topic-container{
+    padding: 20px 0 10px 0;
+    /* background-color: red; */
+}
+#topic-more-info{
+    float: left;
+    height: 40px;
+}
+#topic-more-info-content{
+    /* float: left; */
+    line-height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(148, 147, 147);
+
+}

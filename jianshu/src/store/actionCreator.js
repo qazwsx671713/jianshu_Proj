@@ -58,3 +58,43 @@ export function change_mouse_state(data){
     }
     )
 }
+
+
+export function get_topic_list_data(){
+    const topic_list_data = store.getState().topic_list
+    if (topic_list_data.length!==0) {
+        console.log('action',topic_list_data)
+        return
+    }
+    return store.dispatch((dispatch)=>{
+        axios.get('/api/get_topic_list_data.json').then(
+            res=>{
+                dispatch(
+                    {
+                        type:'update_topic_list_data',
+                        data:res.data.data
+                    }
+                )
+            },
+            err=>{
+                alert(err)
+            }
+        )
+    })
+}
+
+export function get_list_data(){
+    return (store.dispatch((dispatch)=>{
+        axios.get('/api/list_data.json').then(
+            res=>{
+                dispatch(
+                    {
+                        type:'update_list_data_list',
+                        data:res.data.data
+                    }
+                )
+            },
+            err=>{alert(err)}
+        )
+    }))
+}

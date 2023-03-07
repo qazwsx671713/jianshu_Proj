@@ -1,0 +1,26 @@
+.topicItem-container{
+    float: left;
+    height: 40px;
+    border: 1px solid rgb(208, 206, 224);
+    border-radius: 5px;
+    background-color: rgb(243, 244, 244);
+    margin-right: 20px;
+    margin-bottom: 18px;
+}
+.TopicItem-icon{
+    float: left;
+    /* height: 40px;
+    width: 40px; */
+    height: 40px;
+    width: 40px;
+    border-right: 1px solid rgb(208, 206, 224);
+    font-size: 30px;
+    line-height: 40px;
+    /* padding-left: ; */
+}
+.TopicItem-content{
+    float: left;
+    font-size: 14px;
+    padding: 0px 10px;
+    line-height: 40px;
+}

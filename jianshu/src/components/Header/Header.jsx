@@ -6,6 +6,7 @@ import { useState } from 'react';
 import SearchInfo from './component/SearchInfo/Search_info';
 import {CSSTransition} from 'react-transition-group'
 import {useSelector,useDispatch} from 'react-redux'	
+import {Link} from 'react-router-dom'
 import { changeFocus ,get_hot_search_data,change_mouse_state } from '../../store/actionCreator';
 const Header = () => {
     const focus = useSelector(state=>state.focus)
@@ -27,7 +28,8 @@ const Header = () => {
             <div className="container clearfix">
                 <div className="navlist">
                     <ul>
-                        <li><a className='active' href="https://www.jianshu.com">首页</a></li>
+                        {/* <Link to='/Home'>首页</Link> */}
+                        <li><Link to='/Home'>首页</Link></li>
                         <li><a href="https://www.jianshu.com/apps?utm_medium=desktop&utm_source=navbar-apps">下载App</a></li>
                         <li><a href="https://www.jianshu.com/vips">会员</a></li>
                         <li><a href="https://www.jianshu.com/techareas">IT技术</a></li>
