@@ -98,3 +98,22 @@ export function get_list_data(){
         )
     }))
 }
+export function get_artist_data(){
+    return (store.dispatch((dispatch)=>{
+        // if (store.getState().artist_data_list !== undefined){
+        // }
+        // else{
+            axios.get('/api/get_artist_data.json').then(
+                res=>{
+                    dispatch({
+                        type:'update_artist_data_list',
+                        data:res.data.data
+                    })
+                },
+                err=>{
+                    alert(err)
+                }
+            )
+        
+    }))
+}

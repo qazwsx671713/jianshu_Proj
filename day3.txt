@@ -78,3 +78,77 @@
     -webkit-box-orient:vertical;
 
 6. 自适应窗口大小
+
+
+7. 异步数据获取，但是组件提前更新
+    组件需要从xxx数据中，读取数据并显示，但是再进入网页时，再数据还没返回时，就已经显示组件，报错。
+
+
+
+8. 旋转动画
+    # 首先要旋转的元素要设置为inline-block，不然动画会无效
+    display：inline-block
+    # 设置transition监控rotate
+    transition:transform 1s linear;
+
+    # 注意，用什么改变属性就要监控什么
+    # 同样是旋转，监控的东西不一样
+
+        # 例如用rotate改变属性
+        *************************************
+        *   transition:rotate 1s linear;
+        *   rotate:360deg
+        *************************************
+
+        # 例如用transform改变属性
+        *************************************
+        *   transition:transform 1s linear;
+        *   transform:360deg
+        *************************************
+    
+9. 如何用函数式组件获取dom元素以及其style？
+
+    const FComponent = () => {
+    const refDiv = useRef();
+
+    ** console.log(refDiv.current);
+    ** console.log(refDiv.current.style);
+
+    return <div>
+        <div className="demo" ref={refDiv}>test</div>
+    </div>
+
+10. 函数式组件修改dom元素style
+    const refresh_on = ()=>{
+        rotate_item.current.style.rotate = "360deg"
+    }
+    style改变，会直接引起css变化，然后对应元素发生变化
+    transition监控到css变化，产生动画效果
+
+11. 完整的动画效果实现
+    css：
+        .writer-rotate{
+            rotate: 0deg;
+            transition:rotate 1s linear;
+        }
+    函数式组件中：
+            const refresh_on = ()=>{
+                console.log(rotate_item.current.style)
+                const now_rotate = rotate_item.current.style.rotate
+                if(now_rotate===''){
+                    // console.log('111')
+                    rotate_item.current.style.rotate = "360deg"
+                }
+                else{
+                    console.log(now_rotate.slice(0,-3))
+                    const new_rotate =parseInt(now_rotate.slice(0,-3))
+                    const str_rotate = (new_rotate+360)+'deg'
+                    console.log(str_rotate)
+                    rotate_item.current.style.rotate = str_rotate
+
+                }
+            }
+    css中监控了rotate属性
+    函数式组件中设置了点击事件，当点击时，改变css中的rotate
+    然后css中的transition感受到rotate的变化，产生动画效果。
+

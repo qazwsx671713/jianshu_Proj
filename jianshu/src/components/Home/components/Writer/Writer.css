@@ -1,0 +1,37 @@
+#writer-container{
+    position: relative;
+    width: 390px;
+    margin-left: 10px;
+    margin-top: 30px;
+    /* height: 150px; */
+    border: 1px solid rgb(153, 166, 196);
+    border-radius: 4px;
+    /* padding-top: 30px; */
+}
+#writer-banner{
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
+#recommand-artist{
+    float: left;
+    margin-left: 10px;
+    color: rgb(177, 150, 150);
+    font-size: 20px;
+
+}
+#recommand-change{
+    float: right;
+    margin-right: 10px;
+    color: rgb(177, 150, 150);
+    font-size: 20px;
+}
+#recommand-change a span{
+    display: inline-block;
+}
+.writer-rotate{
+    rotate: 0deg;
+    transition:rotate 1s linear;
+}
+/* .writer-rotate:hover{
+    rotate: 360deg;
+    /* transform:rotate(360deg); */ 
