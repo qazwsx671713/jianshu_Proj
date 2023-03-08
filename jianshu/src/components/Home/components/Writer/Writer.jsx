@@ -5,8 +5,11 @@ import {useDispatch,useSelector} from 'react-redux'
 import { useState,useRef } from 'react';
 const Writer = () => {
     const artist_data_list = useSelector(state=>state.artist_data_list)
-    console.log('writer say::',artist_data_list)
-    const usr_list = artist_data_list.users
+    let usr_list = []
+    if (artist_data_list!==undefined){
+        usr_list = artist_data_list.users
+    }
+
     const rotate_item = useRef()
     const refresh_on = ()=>{
         const now_rotate = rotate_item.current.style.rotate
@@ -19,7 +22,7 @@ const Writer = () => {
             rotate_item.current.style.rotate = str_rotate
         }
     }
-    return (
+    return (usr_list.length!==0)&&(
         <div id='writer-container' className='clearfix'>
             <div id="writer-banner" className='clearfix'>
                 <div id="recommand-artist">推荐作者</div>
@@ -33,6 +36,7 @@ const Writer = () => {
                 })
             }
         </div>
+        
     );
 }
 

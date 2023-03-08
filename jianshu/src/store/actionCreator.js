@@ -63,7 +63,6 @@ export function change_mouse_state(data){
 export function get_topic_list_data(){
     const topic_list_data = store.getState().topic_list
     if (topic_list_data.length!==0) {
-        console.log('action',topic_list_data)
         return
     }
     return store.dispatch((dispatch)=>{
@@ -84,6 +83,7 @@ export function get_topic_list_data(){
 }
 
 export function get_list_data(){
+    if (store.getState().list_info_list.length!==0) return
     return (store.dispatch((dispatch)=>{
         axios.get('/api/list_data.json').then(
             res=>{
@@ -99,6 +99,7 @@ export function get_list_data(){
     }))
 }
 export function get_artist_data(){
+    if (store.getState().artist_data_list !== undefined) return
     return (store.dispatch((dispatch)=>{
         // if (store.getState().artist_data_list !== undefined){
         // }
@@ -116,4 +117,19 @@ export function get_artist_data(){
             )
         
     }))
+}
+export function read_more(){
+    let list_data = store.getState().list_info_list
+    list_data = [...list_data,...list_data]
+    console.log(list_data)
+    return store.dispatch({
+        type:'update_list_data_list',
+        data:list_data
+    })
+}
+export function updatePageTop(data){
+    return store.dispatch({
+        type:'update_pageTop',
+        data:data
+    })
 }

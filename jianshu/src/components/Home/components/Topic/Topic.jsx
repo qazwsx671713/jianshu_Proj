@@ -4,7 +4,6 @@ import TopicItem from './component/TopicItem/TopicItem'
 import {useSelector,useDispatch} from 'react-redux'
 export default function Topic() {
   const topic_list = useSelector(state=>state.topic_list)
-
   return (
     <div id='topic-container' className='clearfix'>
       {

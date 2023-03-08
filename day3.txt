@@ -82,6 +82,23 @@
 
 7. 异步数据获取，但是组件提前更新
     组件需要从xxx数据中，读取数据并显示，但是再进入网页时，再数据还没返回时，就已经显示组件，报错。
+    解决：
+        整个流程为：
+            App初始render->ajax请求数据->组件展示数据
+            但ajax收到数据组件就展示数据了，因此整个流程其实为：
+            App初始render->ajax请求数据->组件展示空数据->ajax收到数据->重新render->组件展示数据
+
+        报错语句其实是：data.map() 报错undefined没有map，其实就是组件再展示数据的时候出错了。
+        修改空数据时，data不为undefined，而是[]即可。
+            let usr_list = []
+            if (artist_data_list!==undefined){
+                usr_list = artist_data_list.users
+            }
+
+    也就是说，我们的组件一定是：
+        1.还没数据前展示空数据，或是如果是判断如果是空数据，那先不展示。
+        2.接收到数据后，dispatch再展示。
+        因此，我们一定要做到空数据、无数据时的处理。
 
 
 
@@ -152,3 +169,15 @@
     函数式组件中设置了点击事件，当点击时，改变css中的rotate
     然后css中的transition感受到rotate的变化，产生动画效果。
 
+12. 制作回到顶部功能
+    该按钮在可视窗口中的位置是固定的
+    使用以下语句实现：
+        position:fixed
+    
+    当页面不再顶部的时候，该按钮才出现，在顶部时，该按钮消失
+
+    1.绑定窗口滑动事件
+    window.addEventListener('scroll',changeScreenProps)
+    2.获取当前滚动值
+    document.documentElement.scrollTop
+    3.判断滚动值，当大于某个阈值时显示按钮。
