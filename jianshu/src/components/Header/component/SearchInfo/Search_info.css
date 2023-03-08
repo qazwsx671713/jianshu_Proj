@@ -36,3 +36,8 @@
 /* #hot-box{
     display: ;
 } */
+.search-rotate{
+    display: inline-block;
+    rotate:0deg;
+    transition: rotate 1s ease;
+}

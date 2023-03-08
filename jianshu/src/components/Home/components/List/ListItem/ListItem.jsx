@@ -8,7 +8,7 @@ export default function ListItem(props) {
         <p className='list-item-container-content font_simall'>{content}</p>
         <div className="list-info-detail">
             <span className='list-info-detail-name'><i className='iconfont icon-xingsu list-icon'></i> 12.8</span>
-            <span className='list-info-detail-usrname'><a href="#">{usr_name}</a></span>
+            <span className='list-info-detail-usrname'><span href="#">{usr_name}</span></span>
             <span className="list-info-detail-commen_like"><i className='iconfont icon-pinglun list-icon'></i> {comment_num}</span>
             <span className="list-info-detail-commen_like"><i className='iconfont icon-xiai list-icon'></i> {like_num}</span>
         </div>

@@ -181,3 +181,7 @@
     2.获取当前滚动值
     document.documentElement.scrollTop
     3.判断滚动值，当大于某个阈值时显示按钮。
+
+13. Link包裹的区域不能再有a标签
+    因为点击该位置时，系统就不知道该按a标签跳转还是按Link跳转
+    因此，将Link包裹住的a标签全部换成link标签。
